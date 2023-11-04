@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3e7sulhbikrl"]
+
+[ext_resource type="PackedScene" uid="uid://b3heg5d87rmol" path="res://scenes/shop/shop.tscn" id="1_gj8pk"]
+[ext_resource type="PackedScene" uid="uid://iinfcyxcssgo" path="res://scenes/monsters/potato/potato.tscn" id="2_vdpf0"]
+[ext_resource type="PackedScene" uid="uid://my5w05lrq3c8" path="res://scenes/tilemap/tile_map.tscn" id="3_6fnyr"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Shop" parent="." instance=ExtResource("1_gj8pk")]
+position = Vector2(176, 128)
+
+[node name="Potato" parent="." instance=ExtResource("2_vdpf0")]
+position = Vector2(264, 176)
+
+[node name="TileMap" parent="." instance=ExtResource("3_6fnyr")]
