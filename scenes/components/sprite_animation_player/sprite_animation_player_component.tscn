@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://b1l5v0q4gjujg"]
+[gd_scene load_steps=2 format=3 uid="uid://b1l5v0q4gjujg"]
+
+[ext_resource type="Script" path="res://scenes/components/sprite_animation_player/sprite_animation_player_component.gd" id="1_xxskm"]
 
 [node name="SpriteAnimationPlayerComponent" type="Node"]
+script = ExtResource("1_xxskm")
