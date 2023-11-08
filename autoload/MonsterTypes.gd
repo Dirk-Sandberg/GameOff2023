@@ -26,14 +26,14 @@ var training_times = {
 	MonsterTypes.TYPES.BROCCOLI:
 		{
 			MonsterTypes.SIZES.SMALL: 11,
-			MonsterTypes.SIZES.MEDIUM:2,
+			MonsterTypes.SIZES.MEDIUM: 2,
 			MonsterTypes.SIZES.LARGE: 15,
 		},
 	MonsterTypes.TYPES.CABBAGE:
 		{
-			MonsterTypes.SIZES.SMALL: 11,
+			MonsterTypes.SIZES.SMALL: 3,
 			MonsterTypes.SIZES.MEDIUM:2,
-			MonsterTypes.SIZES.LARGE: 15,
+			MonsterTypes.SIZES.LARGE: 4,
 		},
 	MonsterTypes.TYPES.CARROT:
 		{
@@ -49,9 +49,9 @@ var training_times = {
 		},
 	MonsterTypes.TYPES.CAULIFLOWER:
 		{
-			MonsterTypes.SIZES.SMALL: 11,
-			MonsterTypes.SIZES.MEDIUM:2,
-			MonsterTypes.SIZES.LARGE: 15,
+			MonsterTypes.SIZES.SMALL: 2,
+			MonsterTypes.SIZES.MEDIUM:3,
+			MonsterTypes.SIZES.LARGE: 4,
 		},
 	MonsterTypes.TYPES.GREEN_ONION:
 		{

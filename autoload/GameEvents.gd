@@ -11,7 +11,13 @@ enum SPAWN_LOCATIONS {
 }
 var spawn_location = SPAWN_LOCATIONS.LEFT
 
-var selected_scale = 1 # 0, 1, or 2
+
+var SCALE_OPTIONS = {
+	MonsterTypes.SIZES.SMALL: 0.5,
+	MonsterTypes.SIZES.MEDIUM: 1.0,
+	MonsterTypes.SIZES.LARGE: 2.0,
+}
+var selected_scale = SCALE_OPTIONS[1] # 0, 1, or 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

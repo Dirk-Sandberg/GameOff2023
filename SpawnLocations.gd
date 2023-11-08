@@ -26,9 +26,12 @@ func _ready():
 }
 	GameEvents.connect("spawn_monster", on_spawn_monster)
 
-func on_spawn_monster(monster_type, monster_scale):
+func on_spawn_monster(monster_type, monster_scale_enum):
+	# monster_scale is like  MonsterTypes.SIZES.SMALL
 	var monster_scene = MONSTER_SCENES[monster_type]
 	var monster = monster_scene.instantiate()
+	var monster_scale: float = GameEvents.SCALE_OPTIONS[monster_scale_enum]
+	monster.scale = Vector2(monster_scale, monster_scale)
 	add_child(monster)
 	if GameEvents.spawn_location == GameEvents.SPAWN_LOCATIONS.LEFT:
 		monster.global_position = $Left.global_position

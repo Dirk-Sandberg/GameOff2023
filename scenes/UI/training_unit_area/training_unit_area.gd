@@ -3,7 +3,6 @@ extends VBoxContainer
 var training_queue = []
 @export var monster_panel_scene: PackedScene
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameEvents.connect("start_training_unit", on_start_training_unit)
@@ -32,10 +31,14 @@ func on_stop_training_unit(unit):
 	unit.queue_free()
 	print("TEST", %CurrentlyTrainedUnitArea.get_children())
 
-func on_start_training_unit(unit_type, unit_scale):
+func on_start_training_unit(unit_type, unit_scale: MonsterTypes.SIZES):
+# unit_scale is like MonsterTypes.SIZES.SMALL
 	display_unit_icon(unit_type, unit_scale)
 	training_queue.append([unit_type, unit_scale])
 	if $Timer.is_stopped():
+		print("WTF", unit_type, " OMG ", unit_scale)
+		print(typeof(unit_type), " ZZ ", typeof(unit_scale))
+		print(MonsterTypes.training_times)
 		$Timer.wait_time = MonsterTypes.training_times[unit_type][unit_scale]
 		$Timer.start()
 
