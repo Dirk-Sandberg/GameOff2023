@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm2qwcv2t516s"]
+
+[ext_resource type="Script" path="res://SpawnLocations.gd" id="1_gr5ph"]
+[ext_resource type="PackedScene" uid="uid://b54w1tve23ppe" path="res://scenes/monsters/cauliflower/cauliflower.tscn" id="2_2brw7"]
+[ext_resource type="PackedScene" uid="uid://iinfcyxcssgo" path="res://scenes/monsters/potato/potato.tscn" id="2_fpc1s"]
+[ext_resource type="PackedScene" uid="uid://dwe7rar4tlcr1" path="res://scenes/monsters/green_onion/green_onion.tscn" id="3_n4k3y"]
+
+[node name="SpawnLocations" type="Node2D"]
+script = ExtResource("1_gr5ph")
+cauliflower_scene = ExtResource("2_2brw7")
+green_onion_scene = ExtResource("3_n4k3y")
+potato_scene = ExtResource("2_fpc1s")
+
+[node name="Left" type="Node2D" parent="."]
+position = Vector2(-20, 0)
+
+[node name="Right" type="Node2D" parent="."]
+position = Vector2(20, 0)

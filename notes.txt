@@ -7,8 +7,11 @@ Upgrades:
 	offensive mode vs. stand ground mode
 	increased damage based on nearby small allies
 	increased damage based on nearby same-scale or NOT same-scale allies
-	
-	
+	Multiple shops - allows queueing more people
+	Waves of enemies?
+
+DONT BE LAZY JUST CROP THE IMAGE OF EACH VEGGIE
+
 Why does scale matter?
 	Some enemies can only hit large units?
 	Some enemies can only hit small units?
@@ -20,5 +23,4 @@ todo:
 	walk animations
 	clicking on shop does something -> Use components in case switching structures
 	shader for taking damage
-	ally/enemy indicators -> Health bars
 	scale basics

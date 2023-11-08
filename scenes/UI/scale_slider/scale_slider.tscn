@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk3r7038ap8dy"]
+
+[ext_resource type="Script" path="res://scenes/UI/scale_slider/scale_slider.gd" id="1_sbbim"]
+
+[node name="ScaleSlider" type="HSlider"]
+max_value = 2.0
+value = 1.0
+script = ExtResource("1_sbbim")

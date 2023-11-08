@@ -1,6 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3heg5d87rmol"]
+[gd_scene load_steps=12 format=3 uid="uid://b3heg5d87rmol"]
 
+[ext_resource type="Script" path="res://scenes/shop/shop.gd" id="1_fggoo"]
 [ext_resource type="Texture2D" uid="uid://bt0irn4ax1ctl" path="res://assets/shop/shop_anim.png" id="1_fubte"]
+[ext_resource type="PackedScene" uid="uid://cis7r247ht3t1" path="res://scenes/UI/shop_menu/shop_menu.tscn" id="2_v7opn"]
+[ext_resource type="PackedScene" uid="uid://bm2qwcv2t516s" path="res://scenes/spawn_locations/spawn_locations.tscn" id="4_85nbo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ty4a"]
 atlas = ExtResource("1_fubte")
@@ -53,8 +56,25 @@ animations = [{
 }]
 
 [node name="Shop" type="Node2D"]
+script = ExtResource("1_fggoo")
+shop_menu_scene = ExtResource("2_v7opn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_17d61")
 autoplay = "default"
 frame_progress = 0.544577
+
+[node name="Button" type="Button" parent="AnimatedSprite2D"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -24.0
+offset_right = -59.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpawnLocations" parent="." instance=ExtResource("4_85nbo")]
+position = Vector2(0, 64)

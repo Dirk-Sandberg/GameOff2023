@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://cis7r247ht3t1"]
+
+[ext_resource type="PackedScene" uid="uid://85k45qfqxtfg" path="res://scenes/UI/monster_panel/monster_panel.tscn" id="1_jglpi"]
+[ext_resource type="Script" path="res://scenes/UI/shop_menu/shop_menu.gd" id="1_o6ice"]
+[ext_resource type="PackedScene" uid="uid://cunrt8lfgp77y" path="res://scenes/UI/training_unit_area/training_unit_area.tscn" id="3_u70k4"]
+[ext_resource type="PackedScene" uid="uid://dk3r7038ap8dy" path="res://scenes/UI/scale_slider/scale_slider.tscn" id="4_2rog8"]
+
+[node name="ShopMenu" type="CanvasLayer"]
+script = ExtResource("1_o6ice")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -134.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TrainUnitsBox" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/TrainUnitsBox"]
+layout_mode = 2
+text = "Train Units"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/TrainUnitsBox"]
+layout_mode = 2
+
+[node name="MonsterPanel" parent="Control/HBoxContainer/TrainUnitsBox/HBoxContainer" instance=ExtResource("1_jglpi")]
+layout_mode = 2
+
+[node name="MonsterPanel2" parent="Control/HBoxContainer/TrainUnitsBox/HBoxContainer" instance=ExtResource("1_jglpi")]
+layout_mode = 2
+monster_type = 1
+
+[node name="MonsterPanel3" parent="Control/HBoxContainer/TrainUnitsBox/HBoxContainer" instance=ExtResource("1_jglpi")]
+layout_mode = 2
+monster_type = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/HBoxContainer/TrainUnitsBox"]
+layout_mode = 2
+
+[node name="MonsterPanel4" parent="Control/HBoxContainer/TrainUnitsBox/HBoxContainer2" instance=ExtResource("1_jglpi")]
+layout_mode = 2
+monster_type = 3
+
+[node name="MonsterPanel5" parent="Control/HBoxContainer/TrainUnitsBox/HBoxContainer2" instance=ExtResource("1_jglpi")]
+layout_mode = 2
+monster_type = 4
+
+[node name="MonsterPanel6" parent="Control/HBoxContainer/TrainUnitsBox/HBoxContainer2" instance=ExtResource("1_jglpi")]
+layout_mode = 2
+monster_type = 5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/HBoxContainer/TrainUnitsBox"]
+layout_mode = 2
+
+[node name="MonsterPanel7" parent="Control/HBoxContainer/TrainUnitsBox/HBoxContainer3" instance=ExtResource("1_jglpi")]
+layout_mode = 2
+monster_type = 6
+
+[node name="MonsterPanel8" parent="Control/HBoxContainer/TrainUnitsBox/HBoxContainer3" instance=ExtResource("1_jglpi")]
+layout_mode = 2
+monster_type = 7
+
+[node name="MonsterPanel9" parent="Control/HBoxContainer/TrainUnitsBox/HBoxContainer3" instance=ExtResource("1_jglpi")]
+layout_mode = 2
+monster_type = 8
+
+[node name="UpgradesBox" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="Scale" type="Label" parent="Control/HBoxContainer/UpgradesBox"]
+layout_mode = 2
+text = "Unit Scale"
+
+[node name="TrainingUnitArea" parent="Control/HBoxContainer/UpgradesBox" instance=ExtResource("3_u70k4")]
+layout_mode = 2
+
+[node name="ScaleSlider" parent="Control/HBoxContainer/UpgradesBox" instance=ExtResource("4_2rog8")]
+layout_mode = 2
+
+[node name="DescriptionBox" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="Control/HBoxContainer/DescriptionBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Foo bar"
+
+[node name="CloseButton" type="Button" parent="Control/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"

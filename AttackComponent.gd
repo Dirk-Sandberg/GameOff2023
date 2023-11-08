@@ -56,7 +56,6 @@ func on_sprite_frame_changed():
 	if anim_player.animation != "attack":
 		return
 	if anim_player.frame == damaging_frame:
-		print("DMGING!", anim_player.frame)
 		perform_damage()
 
 func perform_damage():

@@ -15,5 +15,4 @@ func _ready():
 	set_percent(100)
 
 func set_percent(pct):
-	print("SETTING PCT", pct)
 	hp_bar.value = max(pct, 0.0)
