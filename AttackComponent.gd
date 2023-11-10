@@ -11,7 +11,7 @@ var attacking = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	attack_damage = attack_damage*entity.scale.y
-	entity.get_node("AnimatedSprite2D").frame_changed.connect(on_sprite_frame_changed)
+	entity.get_node("ScalableNodes/AnimatedSprite2D").frame_changed.connect(on_sprite_frame_changed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,7 +52,7 @@ func attack():
 		attack()
 
 func on_sprite_frame_changed():
-	var anim_player = entity.get_node("AnimatedSprite2D") as AnimatedSprite2D
+	var anim_player = entity.get_node("ScalableNodes/AnimatedSprite2D") as AnimatedSprite2D
 	if anim_player.animation != "attack":
 		return
 	if anim_player.frame == damaging_frame:

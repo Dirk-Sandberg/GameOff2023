@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://iinfcyxcssgo"]
+[gd_scene load_steps=48 format=3 uid="uid://iinfcyxcssgo"]
 
 [ext_resource type="PackedScene" uid="uid://v5kbbo3j6b4c" path="res://scenes/components/health_component/health_component.tscn" id="1_1mjyi"]
 [ext_resource type="PackedScene" uid="uid://dn3gdlhsypg7x" path="res://scenes/components/attack/attack_component.tscn" id="1_ardrr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1l5v0q4gjujg" path="res://scenes/components/sprite_animation_player/sprite_animation_player_component.tscn" id="1_t3dba"]
 [ext_resource type="PackedScene" uid="uid://dilkpov77xkmp" path="res://scenes/components/movement/movement_component.tscn" id="2_6s24e"]
 [ext_resource type="PackedScene" uid="uid://djsgs6j8itff5" path="res://scenes/components/health_component/health_bar.tscn" id="7_hi7db"]
+[ext_resource type="PackedScene" uid="uid://dwobt51h1sru5" path="res://scenes/components/coin_drop/coin_drop_component.tscn" id="7_kyrfg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_10q64"]
 
@@ -307,7 +308,7 @@ entity = NodePath("..")
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("entity", "damage_shape") instance=ExtResource("1_ardrr")]
 attack_damage = 4
 entity = NodePath("..")
-damage_shape = NodePath("../DamageAreaComponent")
+damage_shape = NodePath("../ScalableNodes/DamageAreaComponent")
 damaging_frame = 4
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("entity", "health_bar") instance=ExtResource("1_1mjyi")]
@@ -315,24 +316,31 @@ entity = NodePath("..")
 health_bar = NodePath("../HealthBar")
 
 [node name="SpriteAnimationPlayerComponent" parent="." node_paths=PackedStringArray("anim_player") instance=ExtResource("1_t3dba")]
-anim_player = NodePath("../AnimatedSprite2D")
+anim_player = NodePath("../ScalableNodes/AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_10q64")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="HealthBar" parent="." instance=ExtResource("7_hi7db")]
+position = Vector2(0, -16)
+is_ally = true
+
+[node name="CoinDropComponent" parent="." node_paths=PackedStringArray("health_component", "entity") instance=ExtResource("7_kyrfg")]
+health_component = NodePath("../HealthComponent")
+entity = NodePath("..")
+
+[node name="ScalableNodes" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScalableNodes"]
+unique_name_in_owner = true
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_k67p1")
 animation = &"attack"
 autoplay = "default"
 
-[node name="DamageAreaComponent" type="Area2D" parent="."]
+[node name="DamageAreaComponent" type="Area2D" parent="ScalableNodes"]
 position = Vector2(11, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageAreaComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScalableNodes/DamageAreaComponent"]
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_y7bca")
-
-[node name="HealthBar" parent="." instance=ExtResource("7_hi7db")]
-position = Vector2(0, -16)
-is_ally = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b54w1tve23ppe"]
+[gd_scene load_steps=38 format=3 uid="uid://b54w1tve23ppe"]
 
 [ext_resource type="PackedScene" uid="uid://dn3gdlhsypg7x" path="res://scenes/components/attack/attack_component.tscn" id="1_1ayxo"]
 [ext_resource type="Texture2D" uid="uid://5brea8bbttk6" path="res://assets/monsters/Even More Vegetables Sprite Sheet.png" id="1_ueocb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/monsters/cauliflower/cauliflower.gd" id="1_xjmbp"]
 [ext_resource type="PackedScene" uid="uid://b1l5v0q4gjujg" path="res://scenes/components/sprite_animation_player/sprite_animation_player_component.tscn" id="2_kbcqp"]
 [ext_resource type="PackedScene" uid="uid://dilkpov77xkmp" path="res://scenes/components/movement/movement_component.tscn" id="2_tl2t1"]
+[ext_resource type="PackedScene" uid="uid://dwobt51h1sru5" path="res://scenes/components/coin_drop/coin_drop_component.tscn" id="7_a6bkl"]
 [ext_resource type="PackedScene" uid="uid://djsgs6j8itff5" path="res://scenes/components/health_component/health_bar.tscn" id="7_tyo2c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e4hwa"]
@@ -219,7 +220,6 @@ animations = [{
 size = Vector2(256, 20)
 
 [node name="Cauliflower" type="CharacterBody2D"]
-scale = Vector2(-1, 1)
 script = ExtResource("1_xjmbp")
 
 [node name="MovementComponent" parent="." node_paths=PackedStringArray("entity") instance=ExtResource("2_tl2t1")]
@@ -228,7 +228,7 @@ moving_left = true
 
 [node name="AttackComponent" parent="." node_paths=PackedStringArray("entity", "damage_shape") instance=ExtResource("1_1ayxo")]
 entity = NodePath("..")
-damage_shape = NodePath("../DamageAreaComponent")
+damage_shape = NodePath("../ScalableNodes/DamageAreaComponent")
 damaging_frame = 7
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("entity", "health_bar") instance=ExtResource("1_v8dva")]
@@ -236,21 +236,28 @@ entity = NodePath("..")
 health_bar = NodePath("../HealthBar")
 
 [node name="SpriteAnimationPlayerComponent" parent="." node_paths=PackedStringArray("anim_player") instance=ExtResource("2_kbcqp")]
-anim_player = NodePath("../AnimatedSprite2D")
+anim_player = NodePath("../ScalableNodes/AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_e4hwa")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="HealthBar" parent="." instance=ExtResource("7_tyo2c")]
+position = Vector2(0, -17)
+
+[node name="CoinDropComponent" parent="." node_paths=PackedStringArray("health_component", "entity") instance=ExtResource("7_a6bkl")]
+health_component = NodePath("../HealthComponent")
+entity = NodePath("..")
+
+[node name="ScalableNodes" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScalableNodes"]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_t643b")
 animation = &"attack"
 
-[node name="DamageAreaComponent" type="Area2D" parent="."]
+[node name="DamageAreaComponent" type="Area2D" parent="ScalableNodes"]
 position = Vector2(11, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageAreaComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScalableNodes/DamageAreaComponent"]
 position = Vector2(118, 0)
 shape = SubResource("RectangleShape2D_0egxj")
-
-[node name="HealthBar" parent="." instance=ExtResource("7_tyo2c")]
-position = Vector2(0, -17)

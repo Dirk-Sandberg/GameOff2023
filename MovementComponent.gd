@@ -8,10 +8,11 @@ extends Node
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	var scalable_nodes = entity.get_node("ScalableNodes")
 	if moving_left:
-		entity.scale.x = -abs(entity.scale.x)
+		scalable_nodes.scale.x = -abs(scalable_nodes.scale.x)
 	else:
-		entity.scale.x = abs(entity.scale.x)
+		scalable_nodes.scale.x = abs(scalable_nodes.scale.x)
 	
 
 func _physics_process(delta):

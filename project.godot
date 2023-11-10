@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameEvents="*res://autoload/GameEvents.gd"
 MonsterTypes="*res://autoload/MonsterTypes.gd"
+MonsterScenes="*res://autoload/monster_scenes.tscn"
 
 [display]
 

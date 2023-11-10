@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpue33aer8h3c"]
+
+[ext_resource type="Script" path="res://PersistentUI.gd" id="1_uswnx"]
+[ext_resource type="Texture2D" uid="uid://kn15fw4xmxu2" path="res://assets/monsters/Popcorn.png" id="2_tb52q"]
+
+[node name="PersistentUI" type="CanvasLayer"]
+script = ExtResource("1_uswnx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_tb52q")
+stretch_mode = 2
+
+[node name="CoinCounter" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"

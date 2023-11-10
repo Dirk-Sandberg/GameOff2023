@@ -1,4 +1,5 @@
 extends Node
+signal died
 
 @export var health = 3
 @export var entity: CharacterBody2D
@@ -20,8 +21,9 @@ func take_damage(dmg):
 	health_bar.set_percent(health/max_health)
 	if health <= 0:
 		entity.get_node("SpriteAnimationPlayerComponent").die_anim()
-		await entity.get_node("AnimatedSprite2D").animation_finished
+		await entity.get_node("ScalableNodes/AnimatedSprite2D").animation_finished
 		entity.queue_free()
+		emit_signal("died")
 
 func spawn_dmg_indicator(dmg):
 	var damage_number_instance = damage_number.instantiate()

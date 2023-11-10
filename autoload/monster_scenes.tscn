@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8f8vf51fxdqf"]
+
+[ext_resource type="Script" path="res://autoload/monster_scenes.gd" id="1_kwy4j"]
+[ext_resource type="PackedScene" uid="uid://iinfcyxcssgo" path="res://scenes/monsters/potato/potato.tscn" id="2_640dh"]
+[ext_resource type="PackedScene" uid="uid://b54w1tve23ppe" path="res://scenes/monsters/cauliflower/cauliflower.tscn" id="3_6jykn"]
+[ext_resource type="PackedScene" uid="uid://dwe7rar4tlcr1" path="res://scenes/monsters/green_onion/green_onion.tscn" id="4_utyn4"]
+
+[node name="MonsterScenes" type="Node"]
+script = ExtResource("1_kwy4j")
+broccoli_scene = ExtResource("2_640dh")
+cabbage_scene = ExtResource("2_640dh")
+carrot_scene = ExtResource("2_640dh")
+corn_scene = ExtResource("2_640dh")
+cauliflower_scene = ExtResource("3_6jykn")
+green_onion_scene = ExtResource("4_utyn4")
+onion_scene = ExtResource("2_640dh")
+potato_scene = ExtResource("2_640dh")
+raddish_scene = ExtResource("2_640dh")
